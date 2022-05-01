@@ -1,0 +1,19 @@
+pip3 install django
+python -m django startproject projetdjango
+python manage.py runserver
+cd projetdjango
+python manage.py runserver
+python manage.py migrate
+python manage.py runserver
+python manage.py createsuperuser
+python manage.py runserver
+
+python manage.py makemigrations my_app
+python manage.py migrate
+
+python manage.py shell
+from my_app.models import Question
+Question.objects.all()
+ a= Question(text="")
+ a.save()
+Question.objects.all()

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create question</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'my_app:insert' %}">
+        {% csrf_token %}
+        <div>
+            <label>Title : </label>
+            <input type="text" name="title" value="{{question.title}}">
+        </div><br>
+        <div>
+            <label>Description : </label>
+            <input type="text" name="description" value="{{question.description}}">
+        </div><br>
+        <input type="submit" name="submit" value="Add">
+    </form>
+</body>
+</html>

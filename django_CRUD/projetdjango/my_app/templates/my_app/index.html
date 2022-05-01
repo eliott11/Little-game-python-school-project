@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>List of Questions</h1><hr>
+    <a href="{% url 'my_app:add' %}" style="float:right;">Add New Question</a>
+    <div style="clear:both;"></div><br>
+    <table style="width: 100%;">
+        <thead>
+            <td>Title</td>
+            <td>Description</td>
+            <td colspan="2">Actions</td>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td>{{question.title}}</td>
+                <td>{{question.description}}</td>
+                <td><a href="{% url 'my_app:edit' question.id %}">edit</a></td>
+                <td><a href="{% url 'my_app:delete' question.id %}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
